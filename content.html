@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rahul Garg - Content Hub</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Explore Rahul Garg's curated feed of GenAI, RAG, and Agentic AI content from LinkedIn, Twitter, and Instagram.">
+    <meta property="og:title" content="Rahul Garg | Content Hub">
+    <meta property="og:description" content="52-Week GenAI Curriculum, technical deep dives, and daily AI insights.">
+    <meta property="og:url" content="https://rahulgarg95.github.io/content.html">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- RESET & VARIABLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* PREFERRED DARK THEME: Dark Navy, Teal, Purple (Matches index.html) */
+            --bg-deep: #0F0F1E;
+            --bg-surface: rgba(26, 26, 46, 0.6);
+            --bg-surface-hover: rgba(35, 35, 60, 0.8);
+            
+            --accent-primary: #00BCD4;   /* Teal */
+            --accent-secondary: #9C27B0; /* Purple */
+            --accent-tertiary: #FFD700;  /* Gold */
+            --accent-glow: #4DB8A8;      /* Mint Glow */
+            
+            --text-primary: #FFFFFF;
+            --text-secondary: #B0BEC5;
+            --text-highlight: #E0E0E0;
+
+            --border-light: rgba(0, 188, 212, 0.2);
+            --border-glow: rgba(156, 39, 176, 0.4);
+
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-full: 9999px;
+            
+            --font-display: 'Outfit', sans-serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: linear-gradient(135deg, var(--bg-deep) 0%, #0A0A14 100%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* --- BACKGROUND FX --- */
+        .fixed-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            overflow: hidden;
+            background: var(--bg-deep);
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+            animation: floatOrb 25s infinite ease-in-out;
+        }
+
+        .orb-1 { top: -10%; left: -10%; width: 700px; height: 700px; background: radial-gradient(circle, var(--accent-primary), transparent 70%); animation-delay: 0s; }
+        .orb-2 { bottom: 10%; right: -5%; width: 600px; height: 600px; background: radial-gradient(circle, var(--accent-secondary), transparent 70%); animation-delay: -5s; }
+        .orb-3 { top: 30%; left: 40%; width: 400px; height: 400px; background: radial-gradient(circle, #3F51B5, transparent 70%); opacity: 0.2; animation-delay: -10s; }
+
+        @keyframes floatOrb {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(40px, -30px) scale(1.1); }
+            66% { transform: translate(-20px, 40px) scale(0.9); }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 20, 0.95);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-light);
+            padding: 1rem 2rem;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-primary);
+            border-radius: 50%;
+            box-shadow: 0 0 12px var(--accent-primary);
+        }
+
+        .back-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .back-link:hover { color: var(--accent-primary); }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header Section */
+        .header {
+            margin-top: 100px;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #00BCD4 0%, #FF6B6B 50%, #9C27B0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        /* --- PLATFORM SECTIONS --- */
+        .platform-section {
+            display: grid;
+            grid-template-columns: 1fr 2fr; /* 1/3 detail, 2/3 posts */
+            gap: 4rem;
+            margin-bottom: 6rem;
+            align-items: start;
+            padding: 2rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .platform-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        /* Left Column: Details */
+        .platform-detail {
+            position: sticky;
+            top: 100px; /* Sticky scroll effect */
+        }
+
+        .platform-name-large {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .schedule-box {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .schedule-title {
+            color: var(--accent-tertiary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            display: block;
+        }
+
+        .schedule-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .schedule-list li {
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .schedule-list li::before {
+            content: '•';
+            color: var(--accent-primary);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .follow-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            border-radius: var(--radius-full);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            width: 100%;
+            justify-content: center;
+        }
+
+        /* Right Column: Posts Grid */
+        .posts-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        /* Post Card Styling */
+        .post-card {
+            background: var(--bg-surface);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .post-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-primary);
+            background: var(--bg-surface-hover);
+            box-shadow: 0 10px 30px rgba(0, 188, 212, 0.1);
+        }
+
+        .post-image {
+            width: 100%;
+            height: 200px;
+            background: rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            font-size: 3rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+        
+        .post-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .post-body {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .post-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+            font-family: var(--font-display);
+            line-height: 1.4;
+        }
+
+        .post-excerpt {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .tag {
+            display: inline-block;
+            background: rgba(0, 188, 212, 0.1);
+            color: var(--accent-primary);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .post-footer {
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .post-link {
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        .post-link:hover { text-decoration: underline; }
+
+        /* Platform Specific Colors */
+        .linkedin-color { color: #0077B5; }
+        .twitter-color { color: #fff; }
+        .instagram-color { color: #E4405F; }
+
+        .btn-linkedin { background: #0077B5; color: white; }
+        .btn-linkedin:hover { background: #005E93; }
+        
+        .btn-twitter { background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.2); }
+        .btn-twitter:hover { background: rgba(255,255,255,0.2); }
+        
+        .btn-instagram { background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D); color: white; }
+        .btn-instagram:hover { opacity: 0.9; }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .platform-section { grid-template-columns: 1fr; gap: 2rem; }
+            .platform-detail { position: static; margin-bottom: 1rem; }
+            .schedule-box { margin-bottom: 2rem; }
+        }
+
+        @media (max-width: 600px) {
+            .posts-grid-2 { grid-template-columns: 1fr; }
+            .header h1 { font-size: 2rem; }
+        }
+
+        /* Footer */
+        footer { padding: 4rem 2rem; text-align: center; border-top: 1px solid var(--border-light); margin-top: 4rem; background: rgba(0,0,0,0.2); }
+        .footer-socials { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 2rem; }
+        .footer-social-link { color: var(--text-secondary); font-size: 1.5rem; transition: color 0.3s; }
+        .footer-social-link:hover { color: var(--accent-primary); transform: scale(1.1); }
+    </style>
+</head>
+<body>
+    <!-- Dynamic Background -->
+    <div class="fixed-bg">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-dot"></div> Rahul Garg
+            </a>
+            <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <div class="header">
+        <h1>Content Hub</h1>
+        <p>Explore my latest content on AI, Machine Learning, and GenAI across my key platforms.</p>
+    </div>
+
+    <div class="container">
+        
+        <!-- LINKEDIN SECTION -->
+        <div class="platform-section">
+            <!-- Left: Detail -->
+            <div class="platform-detail">
+                <div class="platform-name-large">
+                    <i class="fab fa-linkedin linkedin-color"></i> LinkedIn
+                </div>
+                <div class="schedule-box">
+                    <span class="schedule-title"><i class="far fa-calendar-alt"></i> Publishing Schedule</span>
+                    <ul class="schedule-list">
+                        <li><strong>Mondays:</strong> 52-Week GenAI Series (Deep Dives)</li>
+                        <li><strong>Wednesdays:</strong> Weekly GenAI Industry Updates</li>
+                        <li><strong>Fridays:</strong> GenAI Tips & Tricks for Everyone</li>
+                    </ul>
+                </div>
+                <a href="https://linkedin.com/in/rahulgarg95" target="_blank" class="follow-btn btn-linkedin">Connect on LinkedIn</a>
+            </div>
+
+            <!-- Right: Posts -->
+            <div class="posts-grid-2">
+                <!-- Post 1 -->
+                <div class="post-card">
+                    <div class="post-image">
+                        <i class="fas fa-brain" style="opacity: 0.5;"></i>
+                    </div>
+                    <div class="post-body">
+                        <h3 class="post-title">Understanding RAG: From Basic to Advanced Architectures</h3>
+                        <p class="post-excerpt">A comprehensive guide to Self-RAG, Corrective RAG, and Graph RAG patterns for enterprise applications.</p>
+                        <div><span class="tag">#GenAI</span><span class="tag">#RAG</span></div>
+                        <div class="post-footer">
+                            <span style="color: var(--text-secondary); font-size: 0.8rem;">2.3K Likes</span>
+                            <a href="https://linkedin.com/in/rahulgarg95" target="_blank" class="post-link">Read Post <i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Post 2 -->
+                <div class="post-card">
+                    <div class="post-image">
+                        <i class="fas fa-robot" style="opacity: 0.5;"></i>
+                    </div>
+                    <div class="post-body">
+                        <h3 class="post-title">Building Your First Agent with LangGraph</h3>
+                        <p class="post-excerpt">Week 12 of the GenAI Series: A practical walkthrough of orchestrating multi-agent workflows.</p>
+                        <div><span class="tag">#Agents</span><span class="tag">#LangGraph</span></div>
+                        <div class="post-footer">
+                            <span style="color: var(--text-secondary); font-size: 0.8rem;">1.8K Likes</span>
+                            <a href="https://linkedin.com/in/rahulgarg95" target="_blank" class="post-link">Read Post <i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TWITTER/X SECTION -->
+        <div class="platform-section">
+            <!-- Left: Detail -->
+            <div class="platform-detail">
+                <div class="platform-name-large">
+                    <i class="fab fa-twitter twitter-color"></i> X (Twitter)
+                </div>
+                <div class="schedule-box">
+                    <span class="schedule-title"><i class="fas fa-bolt"></i> Content Strategy</span>
+                    <ul class="schedule-list">
+                        <li><strong>Daily:</strong> Real-time updates on GenAI trends.</li>
+                        <li><strong>Bit-sized Code:</strong> Python snippets & ML tricks.</li>
+                        <li><strong>Concepts Explained:</strong> Complex topics simplified in threads.</li>
+                    </ul>
+                </div>
+                <a href="https://x.com/genaiwithrahul" target="_blank" class="follow-btn btn-twitter">Follow @genaiwithrahul</a>
+            </div>
+
+            <!-- Right: Posts -->
+            <div class="posts-grid-2">
+                <!-- Post 1 -->
+                <div class="post-card">
+                    <div class="post-image">
+                        <i class="fas fa-code" style="opacity: 0.5;"></i>
+                    </div>
+                    <div class="post-body">
+                        <h3 class="post-title">Thread: 5 Python Tricks for Cleaner ML Code</h3>
+                        <p class="post-excerpt">Stop writing messy pipelines. Here are 5 decorators that will save you hours of debugging.</p>
+                        <div><span class="tag">#Python</span><span class="tag">#DataScience</span></div>
+                        <div class="post-footer">
+                            <span style="color: var(--text-secondary); font-size: 0.8rem;">500 Reposts</span>
+                            <a href="https://x.com/genaiwithrahul" target="_blank" class="post-link">View Thread <i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Post 2 -->
+                <div class="post-card">
+                    <div class="post-image">
+                        <i class="fas fa-newspaper" style="opacity: 0.5;"></i>
+                    </div>
+                    <div class="post-body">
+                        <h3 class="post-title">The State of LLMs in 2026</h3>
+                        <p class="post-excerpt">Hot take: Why small language models (SLMs) running locally are the next big enterprise trend.</p>
+                        <div><span class="tag">#LLM</span><span class="tag">#Trends</span></div>
+                        <div class="post-footer">
+                            <span style="color: var(--text-secondary); font-size: 0.8rem;">850 Likes</span>
+                            <a href="https://x.com/genaiwithrahul" target="_blank" class="post-link">View Tweet <i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- INSTAGRAM SECTION -->
+        <div class="platform-section">
+            <!-- Left: Detail -->
+            <div class="platform-detail">
+                <div class="platform-name-large">
+                    <i class="fab fa-instagram instagram-color"></i> Instagram
+                </div>
+                <div class="schedule-box">
+                    <span class="schedule-title"><i class="fas fa-camera"></i> Visual Learning</span>
+                    <ul class="schedule-list">
+                        <li><strong>Infographics:</strong> Visual architectures of AI systems.</li>
+                        <li><strong>Carousels:</strong> Step-by-step concept explainers.</li>
+                        <li><strong>Reels:</strong> Quick, engaging tech summaries.</li>
+                    </ul>
+                </div>
+                <a href="https://instagram.com/genai_with_rahul" target="_blank" class="follow-btn btn-instagram">Follow @genai_with_rahul</a>
+            </div>
+
+            <!-- Right: Posts -->
+            <div class="posts-grid-2">
+                <!-- Post 1 -->
+                <div class="post-card">
+                    <div class="post-image">
+                        <i class="fas fa-images" style="opacity: 0.5;"></i>
+                    </div>
+                    <div class="post-body">
+                        <h3 class="post-title">Visual Guide: How Transformers Work</h3>
+                        <p class="post-excerpt">A swipeable carousel breaking down Attention Mechanisms, Encoders, and Decoders visually.</p>
+                        <div><span class="tag">#VisualLearning</span><span class="tag">#AI</span></div>
+                        <div class="post-footer">
+                            <span style="color: var(--text-secondary); font-size: 0.8rem;">1.2K Likes</span>
+                            <a href="https://instagram.com/genai_with_rahul" target="_blank" class="post-link">View Post <i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Post 2 -->
+                <div class="post-card">
+                    <div class="post-image">
+                        <i class="fas fa-project-diagram" style="opacity: 0.5;"></i>
+                    </div>
+                    <div class="post-body">
+                        <h3 class="post-title">System Design: Chatbot Architecture</h3>
+                        <p class="post-excerpt">Infographic showing the flow from User Query -> Vector DB -> LLM -> Response.</p>
+                        <div><span class="tag">#SystemDesign</span><span class="tag">#ML</span></div>
+                        <div class="post-footer">
+                            <span style="color: var(--text-secondary); font-size: 0.8rem;">950 Likes</span>
+                            <a href="https://instagram.com/genai_with_rahul" target="_blank" class="post-link">View Post <i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p style="color: var(--text-secondary);">© 2026 Rahul Garg. Built with <i class="fas fa-heart" style="color: var(--accent-secondary);"></i> & Agentic AI.</p>
+            <div class="footer-socials" style="margin-top: 1.5rem;">
+                <a href="https://linkedin.com/in/rahulgarg95" target="_blank" class="footer-social-link"><i class="fab fa-linkedin"></i></a>
+                <a href="https://x.com/genaiwithrahul" target="_blank" class="footer-social-link"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com/genai_with_rahul" target="_blank" class="footer-social-link"><i class="fab fa-instagram"></i></a>
+                <a href="https://github.com/rahulgarg95" target="_blank" class="footer-social-link"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

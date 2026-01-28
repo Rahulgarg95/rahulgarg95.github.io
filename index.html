@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rahul Garg | Senior Data Scientist & GenAI Expert</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Portfolio of Rahul Garg, Senior Data Scientist and GenAI Expert specializing in Machine Learning, NLP, and Agentic AI.">
+    <meta property="og:title" content="Rahul Garg | Senior Data Scientist & GenAI Expert">
+    <meta property="og:description" content="Bridging Machine Learning, NLP, and GenAI. Senior Data Scientist at S&P Global and Content Creator educating 100K+ professionals.">
+    <meta property="og:url" content="https://rahulgarg95.github.io/">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- RESET & VARIABLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* PREFERRED DARK THEME: Dark Navy, Teal, Purple */
+            --bg-deep: #0F0F1E;
+            --bg-surface: rgba(26, 26, 46, 0.6);
+            --bg-surface-hover: rgba(35, 35, 60, 0.8);
+            
+            --accent-primary: #00BCD4;   /* Teal */
+            --accent-secondary: #9C27B0; /* Purple */
+            --accent-tertiary: #FFD700;  /* Gold */
+            --accent-glow: #4DB8A8;      /* Mint Glow */
+            
+            --text-primary: #FFFFFF;
+            --text-secondary: #B0BEC5;
+            --text-highlight: #E0E0E0;
+
+            --border-light: rgba(0, 188, 212, 0.2);
+            --border-glow: rgba(156, 39, 176, 0.4);
+
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-full: 9999px;
+            
+            --font-display: 'Outfit', sans-serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: linear-gradient(135deg, var(--bg-deep) 0%, #0A0A14 100%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* --- BACKGROUND FX --- */
+        .fixed-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            overflow: hidden;
+            background: var(--bg-deep);
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+            animation: floatOrb 25s infinite ease-in-out;
+        }
+
+        .orb-1 { top: -10%; left: -10%; width: 700px; height: 700px; background: radial-gradient(circle, var(--accent-primary), transparent 70%); animation-delay: 0s; }
+        .orb-2 { bottom: 10%; right: -5%; width: 600px; height: 600px; background: radial-gradient(circle, var(--accent-secondary), transparent 70%); animation-delay: -5s; }
+        .orb-3 { top: 30%; left: 40%; width: 400px; height: 400px; background: radial-gradient(circle, #3F51B5, transparent 70%); opacity: 0.2; animation-delay: -10s; }
+
+        @keyframes floatOrb {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(40px, -30px) scale(1.1); }
+            66% { transform: translate(-20px, 40px) scale(0.9); }
+        }
+
+        /* --- TYPOGRAPHY --- */
+        h1, h2, h3, h4 {
+            font-family: var(--font-display);
+            color: var(--text-primary);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #00BCD4 0%, #FF6B6B 50%, #9C27B0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 2rem;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(10, 10, 20, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-light);
+            padding: 1rem 2rem;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-primary);
+            border-radius: 50%;
+            box-shadow: 0 0 12px var(--accent-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-link:hover { color: var(--accent-primary); }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after { width: 100%; }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* --- LAYOUT UTILS --- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section { padding: 6rem 0; }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            padding-top: 100px;
+            position: relative;
+        }
+
+        .hero-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .hero-content {
+            text-align: left;
+        }
+
+        .hero-intro {
+            font-size: 1.2rem;
+            color: var(--accent-primary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: block;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .hero-title {
+            font-size: 4.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero-role {
+            font-size: 1.8rem;
+            color: var(--text-secondary);
+            font-family: var(--font-display);
+            margin-bottom: 2rem;
+            font-weight: 400;
+            animation: fadeInUp 0.8s ease-out 0.3s both;
+        }
+
+        .hero-role span {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .hero-bio {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+            max-width: 700px;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+
+        .btn {
+            padding: 0.9rem 1.8rem;
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-primary), #4DB8A8);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(0, 188, 212, 0.3);
+            border: 1px solid transparent;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 188, 212, 0.5);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border-light);
+            color: var(--text-primary);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent-primary);
+            background: rgba(0, 188, 212, 0.1);
+            color: #fff;
+        }
+
+        /* Social Icons in Hero */
+        .social-connect {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            animation: fadeInUp 0.8s ease-out 0.7s both;
+            align-items: center;
+        }
+        
+        .social-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-right: 0.5rem;
+        }
+
+        .social-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .social-btn:hover {
+            background: var(--bg-surface-hover);
+            color: var(--accent-primary);
+            border-color: var(--border-light);
+            transform: translateY(-3px);
+        }
+
+        /* Mini Stats */
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            margin-top: 3rem;
+            border-top: 1px solid var(--border-light);
+            padding-top: 2rem;
+            animation: fadeInUp 0.8s ease-out 0.8s both;
+        }
+
+        .h-stat div:first-child { font-size: 1.8rem; font-weight: 700; color: var(--text-primary); font-family: var(--font-display); }
+        .h-stat div:last-child { font-size: 0.9rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em; }
+
+
+        .section-header { text-align: center; margin-bottom: 4rem; }
+        .section-tag { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-primary); margin-bottom: 0.5rem; display: block; font-weight: 600; }
+        .section-title { font-size: 2.5rem; margin-bottom: 1rem; }
+
+        /* --- ABOUT SECTION --- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+        }
+
+        /* Bio Card */
+        .bio-card { 
+            background: transparent;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .bio-text { 
+            font-size: 1.2rem; 
+            color: var(--text-secondary); 
+            margin-bottom: 1.5rem; 
+            line-height: 1.8; 
+        }
+        .bio-text strong { color: var(--text-primary); font-weight: 600; }
+
+        .mission-box {
+            background: rgba(0, 188, 212, 0.08);
+            border-left: 4px solid var(--accent-primary);
+            padding: 1.5rem;
+            border-radius: var(--radius-md);
+            margin-top: 2rem;
+            text-align: left;
+            display: inline-block;
+        }
+
+        .mission-title { color: var(--accent-primary); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; display: block; font-weight: 700; }
+        .mission-text { font-size: 1.1rem; color: var(--text-primary); font-style: italic; line-height: 1.6; }
+
+        /* Creator & Tech Layout */
+        .creator-tech-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .info-block {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .info-block:hover {
+            border-color: var(--accent-secondary);
+            transform: translateY(-5px);
+        }
+
+        .block-header {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding-bottom: 1rem;
+        }
+        
+        .block-title { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); }
+        
+        .platform-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .platform-item {
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+        }
+
+        .p-icon {
+            font-size: 1.4rem;
+            margin-top: 0.2rem;
+            width: 30px;
+            text-align: center;
+        }
+        .linkedin .p-icon { color: #0077B5; }
+        .twitter .p-icon { color: #fff; }
+        .instagram .p-icon { color: #E4405F; }
+        .medium .p-icon { color: #FFC017; }
+        .github .p-icon { color: #fff; }
+
+        .p-content h4 { font-size: 1rem; color: var(--text-primary); margin-bottom: 0.3rem; }
+        .p-content p { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem; }
+        .p-link { font-size: 0.85rem; color: var(--accent-primary); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 0.3rem; }
+        .p-link:hover { text-decoration: underline; }
+
+
+        /* --- TIMELINE --- */
+        .timeline-container { position: relative; max-width: 800px; margin: 0 auto; }
+        .timeline-line {
+            position: absolute; left: 24px; top: 0; bottom: 0; width: 2px;
+            background: linear-gradient(to bottom, var(--accent-primary), var(--accent-secondary), transparent); z-index: 0;
+        }
+
+        .timeline-node { display: flex; gap: 2rem; margin-bottom: 3rem; position: relative; z-index: 1; }
+        .node-point {
+            flex-shrink: 0; width: 50px; height: 50px; background: var(--bg-deep);
+            border: 2px solid var(--accent-primary); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem; color: var(--text-primary);
+            box-shadow: 0 0 15px rgba(0, 188, 212, 0.2);
+        }
+
+        .node-content {
+            background: var(--bg-surface); border: 1px solid var(--border-light); padding: 1.5rem;
+            border-radius: var(--radius-md); flex-grow: 1; transition: transform 0.3s ease;
+        }
+
+        .node-content:hover { transform: translateX(10px); border-color: var(--accent-primary); background: var(--bg-surface-hover); }
+
+        .node-header { display: flex; justify-content: space-between; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.5rem; }
+        .node-role { font-size: 1.2rem; font-weight: 600; color: var(--text-primary); }
+        .node-date { color: var(--accent-secondary); font-size: 0.9rem; font-weight: 500; }
+        .node-company { color: var(--text-secondary); font-size: 1rem; margin-bottom: 1rem; display: block; }
+        .node-desc { color: var(--text-secondary); font-size: 0.95rem; }
+        .node-desc ul { list-style-type: none; margin-top: 0.5rem; }
+        .node-desc li { margin-bottom: 0.5rem; position: relative; padding-left: 1.2rem; }
+        .node-desc li::before { content: '•'; color: var(--accent-primary); position: absolute; left: 0; }
+
+        /* --- BENTO GRID SKILLS --- */
+        .bento-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .bento-card {
+            background: var(--bg-surface); border: 1px solid var(--border-light);
+            border-radius: var(--radius-md); padding: 2rem; display: flex; flex-direction: column;
+            transition: all 0.3s ease; position: relative; overflow: hidden;
+        }
+        .bento-card:hover { border-color: var(--accent-secondary); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(156, 39, 176, 0.1); }
+        .bento-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--accent-primary); opacity: 0.5; }
+        .bento-card.purple::before { background: var(--accent-secondary); }
+        .bento-card.gold::before { background: var(--accent-tertiary); }
+        .bento-icon { font-size: 2rem; margin-bottom: 1.5rem; color: var(--text-primary); }
+        .bento-title { font-size: 1.2rem; font-weight: 600; margin-bottom: 1rem; }
+        .tag-cloud { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+        .tag {
+            font-size: 0.85rem; padding: 0.4rem 0.9rem; background: rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-full); color: var(--text-secondary);
+            border: 1px solid transparent; transition: all 0.2s; display: flex; align-items: center; gap: 0.4rem;
+        }
+        .tag i { color: var(--accent-primary); font-size: 0.9rem; }
+        .tag:hover { background: rgba(0, 188, 212, 0.1); color: var(--text-primary); border-color: rgba(0, 188, 212, 0.3); }
+        .col-span-2 { grid-column: span 2; }
+
+        /* --- PROJECTS --- */
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2rem; }
+        .project-card {
+            background: var(--bg-surface); border-radius: var(--radius-lg); overflow: hidden;
+            border: 1px solid var(--border-light); transition: all 0.4s ease;
+        }
+        .project-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); border-color: var(--accent-primary); }
+        .project-banner {
+            height: 140px; background: linear-gradient(135deg, rgba(0, 188, 212, 0.1), rgba(156, 39, 176, 0.1));
+            position: relative; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between;
+        }
+        .project-type {
+            font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent-tertiary);
+            background: rgba(0,0,0,0.3); padding: 0.3rem 0.8rem; border-radius: var(--radius-sm); align-self: flex-start; backdrop-filter: blur(4px);
+        }
+        .project-content { padding: 2rem; flex-grow: 1; display: flex; flex-direction: column; }
+        .project-title { font-size: 1.3rem; margin-bottom: 0.8rem; color: var(--text-primary); }
+        .project-desc { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.5rem; flex-grow: 1; }
+        .project-link { color: var(--accent-primary); text-decoration: none; font-weight: 600; font-size: 0.9rem; display: flex; align-items: center; gap: 0.5rem; }
+        .project-link:hover { text-decoration: underline; }
+
+        /* --- CONTENT HIGHLIGHT --- */
+        .content-highlight {
+            background: linear-gradient(180deg, rgba(30, 35, 45, 0.4) 0%, rgba(0, 188, 212, 0.05) 100%);
+            border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 3rem; text-align: center;
+        }
+
+        /* --- CONTACT SECTION --- */
+        .contact-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .contact-info-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            backdrop-filter: blur(10px);
+        }
+        
+        .contact-row {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-icon {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-primary);
+            font-size: 1.2rem;
+        }
+        
+        .contact-detail h5 { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.2rem; font-weight: 500; }
+        .contact-detail p { font-size: 1.1rem; color: var(--text-primary); font-weight: 600; }
+
+        /* --- FOOTER --- */
+        footer { padding: 4rem 2rem; text-align: center; border-top: 1px solid var(--border-light); margin-top: 4rem; background: rgba(0,0,0,0.2); }
+        .footer-socials { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 2rem; }
+        .footer-social-link { color: var(--text-secondary); font-size: 1.5rem; transition: color 0.3s; }
+        .footer-social-link:hover { color: var(--accent-primary); transform: scale(1.1); }
+
+        /* --- ANIMATIONS --- */
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 900px) {
+            .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 3rem; }
+            .hero-content { text-align: center; }
+            .hero-bio { margin: 0 auto 2.5rem auto; }
+            .hero-stats { justify-content: center; }
+            .btn-group { justify-content: center; }
+            .social-connect { justify-content: center; }
+            .creator-tech-container { grid-template-columns: 1fr; }
+            .contact-section { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title { font-size: 3.5rem; }
+            .bento-grid { grid-template-columns: 1fr; }
+            .col-span-2 { grid-column: auto; }
+            .timeline-line { left: 20px; }
+            .node-point { width: 40px; height: 40px; font-size: 1rem; }
+            .timeline-node { gap: 1rem; }
+            .mobile-menu-btn { display: block; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Dynamic Background -->
+    <div class="fixed-bg">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-dot"></div> Rahul Garg
+            </a>
+            <ul class="nav-links">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#skills" class="nav-link">Expertise</a></li>
+                <li><a href="#projects" class="nav-link">Work</a></li>
+                <li><a href="#content-cta" class="nav-link">Content</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <!-- NEW PORTFOLIO HERO -->
+    <section class="hero">
+        <div class="hero-container">
+            
+            <!-- Content Only Layout -->
+            <div class="hero-content">
+                <span class="hero-intro">Hi, I'm</span>
+                <h1 class="hero-title"><span class="gradient-text">Rahul Garg</span></h1>
+                <h2 class="hero-role">Senior Data Scientist & <br><span>GenAI Expert</span></h2>
+                
+                <p class="hero-bio">
+                    Bridging the gap between <strong>Machine Learning</strong>, <strong>NLP</strong>, and <strong>Agentic AI</strong>. 
+                    I build intelligent systems for the enterprise and create content to help professionals master the future of AI.
+                </p>
+
+                <div class="btn-group">
+                    <a href="#projects" class="btn btn-primary">View Projects <i class="fas fa-code"></i></a>
+                    <!-- RESTORED: Download Resume Button -->
+                    <a href="resume.pdf" target="_blank" class="btn btn-outline">Download Resume <i class="fas fa-download"></i></a>
+                    <a href="content.html" class="btn btn-outline">Explore Content <i class="fas fa-rss"></i></a>
+                </div>
+
+                <!-- Social Connect Buttons -->
+                <div class="social-connect">
+                    <span class="social-label">Follow Me On:</span>
+                    <a href="https://linkedin.com/in/rahulgarg95" target="_blank" class="social-btn" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://x.com/genaiwithrahul" target="_blank" class="social-btn" title="X (Twitter)"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com/genai_with_rahul" target="_blank" class="social-btn" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://github.com/rahulgarg95" target="_blank" class="social-btn" title="GitHub"><i class="fab fa-github"></i></a>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="h-stat">
+                        <div>7+</div>
+                        <div>Years Exp</div>
+                    </div>
+                    <div class="h-stat">
+                        <div>10+</div>
+                        <div>Products</div>
+                    </div>
+                    <div class="h-stat">
+                        <div>10M+</div>
+                        <div>Impressions</div>
+                    </div>
+                    <div class="h-stat">
+                        <div>50+</div>
+                        <div>Articles</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REDESIGNED ABOUT SECTION -->
+    <section id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Overview</span>
+                <h2 class="section-title">Who I Am</h2>
+            </div>
+
+            <div class="about-grid">
+                <!-- ROW 1: Professional Bio -->
+                <div class="bio-card">
+                    <h3 style="font-size: 1.8rem; margin-bottom: 1.5rem; color: var(--text-primary);">Building Intelligent Solutions</h3>
+                    <p class="bio-text">
+                        I'm a <strong>Senior Data Scientist at S&P Global</strong>, where I lead Agentic AI & GenAI product development for Carfax Automotive Insights. My work focuses on architecting scalable systems using <strong>LangGraph, CrewAI, and Multi-Agent RAG</strong>.
+                    </p>
+                    <p class="bio-text">
+                        My career spans pivotal roles at <strong>HPE, Fractal Analytics, and Wells Fargo</strong>. From reducing operational overhead by 30% to deploying enterprise-grade sentiment analysis, I’ve always been driven by one goal: delivering real, measurable impact through AI.
+                    </p>
+                    
+                    <div class="mission-box">
+                        <span class="mission-title">Core Mission</span>
+                        <p class="mission-text">"To demystify complex AI systems and transform non-technical teams into data-driven thinkers through accessible, practical education."</p>
+                    </div>
+                </div>
+
+                <!-- ROW 2: Creator & Technical Blocks -->
+                <div class="creator-tech-container" style="grid-column: 1 / -1;">
+                    <!-- BLOCK A: Social Growth -->
+                    <div class="info-block">
+                        <div class="block-header">
+                            <i class="fas fa-chart-network" style="color: var(--accent-tertiary); font-size: 1.5rem;"></i>
+                            <span class="block-title">Social Content</span>
+                        </div>
+                        
+                        <div class="platform-list">
+                            <div class="platform-item linkedin">
+                                <i class="fab fa-linkedin p-icon"></i>
+                                <div class="p-content">
+                                    <h4>LinkedIn (The Pulse)</h4>
+                                    <p>52-Week GenAI Series & Weekly ML Tips.</p>
+                                    <a href="https://linkedin.com/in/rahulgarg95" target="_blank" class="p-link">10M+ Impressions <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+
+                            <div class="platform-item twitter">
+                                <i class="fab fa-twitter p-icon"></i>
+                                <div class="p-content">
+                                    <h4>Twitter / X</h4>
+                                    <p>Real-time trends, quick insights & community.</p>
+                                    <a href="https://x.com/genaiwithrahul" target="_blank" class="p-link">Follow @genaiwithrahul <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+
+                            <div class="platform-item instagram">
+                                <i class="fab fa-instagram p-icon"></i>
+                                <div class="p-content">
+                                    <h4>Instagram</h4>
+                                    <p>Visual infographics & concept explainers.</p>
+                                    <a href="https://instagram.com/genai_with_rahul" target="_blank" class="p-link">See Visuals <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- BLOCK B: Technical Depth -->
+                    <div class="info-block">
+                        <div class="block-header">
+                            <i class="fas fa-code" style="color: var(--accent-primary); font-size: 1.5rem;"></i>
+                            <span class="block-title">Technical Deep Dives</span>
+                        </div>
+                        
+                        <div class="platform-list">
+                            <div class="platform-item github">
+                                <i class="fab fa-github p-icon"></i>
+                                <div class="p-content">
+                                    <h4>Open Source (GitHub)</h4>
+                                    <p>Repositories for RAG implementations, LangGraph templates, and LLM fine-tuning scripts.</p>
+                                    <a href="https://github.com/rahulgarg95" target="_blank" class="p-link">Explore Repos <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+
+                            <div class="platform-item medium">
+                                <i class="fab fa-medium p-icon"></i>
+                                <div class="p-content">
+                                    <h4>Technical Writing (Medium)</h4>
+                                    <p>Long-form articles on system architecture, advanced retrieval strategies, and agentic workflows.</p>
+                                    <a href="https://medium.com/@rahulgarg95" target="_blank" class="p-link">Read Articles <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience (Neural Timeline) -->
+    <section id="experience">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Trajectory</span>
+                <h2 class="section-title">Professional Journey</h2>
+            </div>
+            
+            <div class="timeline-container">
+                <div class="timeline-line"></div>
+                
+                <!-- Node 1 -->
+                <div class="timeline-node">
+                    <div class="node-point"><i class="fas fa-star"></i></div>
+                    <div class="node-content">
+                        <div class="node-header">
+                            <span class="node-role">Senior Data Scientist (Agentic AI)</span>
+                            <span class="node-date">Jan 2025 - Present</span>
+                        </div>
+                        <span class="node-company">S&P Global | Carfax Automotive Insights</span>
+                        <div class="node-desc">
+                            <ul>
+                                <li>Designing & implementing agentic AI workflows using <strong>LangGraph & CrewAI</strong> frameworks for multi-step reasoning.</li>
+                                <li>Building advanced RAG architectures (Self-RAG, Graph RAG, Corrective RAG) for domain-specific intelligence.</li>
+                                <li>Mentoring teams on modern GenAI patterns, multi-agent orchestration & LLM best practices.</li>
+                                <li>Scaling enterprise LLM applications for automotive industry insights & decision making.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Node 2 -->
+                <div class="timeline-node">
+                    <div class="node-point"><i class="fas fa-chart-line"></i></div>
+                    <div class="node-content">
+                        <div class="node-header">
+                            <span class="node-role">Senior Data Scientist</span>
+                            <span class="node-date">Nov 2022 - Dec 2024</span>
+                        </div>
+                        <span class="node-company">Wells Fargo | Corporate & Investment Banking (CIB)</span>
+                        <div class="node-desc">
+                            <ul>
+                                <li>Developed enterprise DS platform boosting data processing efficiency by <strong>20%</strong> for real-time decision making.</li>
+                                <li>Built fine-tuned <strong>FinBERT</strong> sentiment analysis models improving issue identification accuracy by <strong>25%</strong>.</li>
+                                <li>Implemented LSTM-based time series forecasting for FX volatility analysis & risk management.</li>
+                                <li>Enhanced trader decision-making with interactive real-time dashboards.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Node 3 -->
+                <div class="timeline-node">
+                    <div class="node-point"><i class="fas fa-database"></i></div>
+                    <div class="node-content">
+                        <div class="node-header">
+                            <span class="node-role">Data Scientist</span>
+                            <span class="node-date">Sept 2021 - Nov 2022</span>
+                        </div>
+                        <span class="node-company">Fractal Analytics | Banking Analytics</span>
+                        <div class="node-desc">
+                            <ul>
+                                <li>Led self-serve analytics dashboard development enabling business teams autonomous insights.</li>
+                                <li>Implemented digital journey analysis pipelines & enterprise-scale data harmonization.</li>
+                                <li>Mentored junior data scientists on platform architecture & ML best practices.</li>
+                                <li>Delivered predictive models using <strong>Spark & PySpark</strong> at enterprise scale.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Node 4 -->
+                <div class="timeline-node">
+                    <div class="node-point"><i class="fas fa-server"></i></div>
+                    <div class="node-content">
+                        <div class="node-header">
+                            <span class="node-role">Svc Info Developer / Data Scientist</span>
+                            <span class="node-date">Oct 2017 - Sept 2021</span>
+                        </div>
+                        <span class="node-company">Hewlett Packard Enterprise | Telecom & Operations</span>
+                        <div class="node-desc">
+                            <ul>
+                                <li>Reduced SLA breaches by <strong>40%</strong> with KPI monitoring and ML-driven alerts.</li>
+                                <li>Delivered 5 telecom ML use cases reducing overhead by <strong>20-30%</strong>.</li>
+                                <li>Built self-monitoring platform achieving <strong>60% downtime reduction</strong>.</li>
+                                <li>Awarded <strong>Best Innovation Project</strong> (2020) & MVP (2019, 2020).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills (Bento Grid with Icons) -->
+    <section id="skills">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Arsenal</span>
+                <h2 class="section-title">Technical Expertise</h2>
+            </div>
+
+            <div class="bento-grid">
+                <!-- Card 1: Agentic AI -->
+                <div class="bento-card col-span-2">
+                    <div class="bento-icon"><i class="fas fa-robot"></i></div>
+                    <h3 class="bento-title">Agentic AI & GenAI</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.9rem;">
+                        Building autonomous systems that plan, execute, and reflect.
+                    </p>
+                    <div class="tag-cloud">
+                        <span class="tag"><i class="fas fa-project-diagram"></i> LangGraph</span>
+                        <span class="tag"><i class="fas fa-users-cog"></i> CrewAI</span>
+                        <span class="tag"><i class="fas fa-brain"></i> Reasoning Engines</span>
+                        <span class="tag"><i class="fas fa-layer-group"></i> RAG Systems</span>
+                        <span class="tag"><i class="fas fa-terminal"></i> Prompt Engineering</span>
+                        <span class="tag"><i class="fas fa-compress-arrows-alt"></i> Context Opt</span>
+                    </div>
+                </div>
+
+                <!-- Card 2: NLP & ML -->
+                <div class="bento-card purple">
+                    <div class="bento-icon"><i class="fas fa-brain"></i></div>
+                    <h3 class="bento-title">NLP & Machine Learning</h3>
+                    <div class="tag-cloud">
+                        <span class="tag"><i class="fas fa-cube"></i> Transformers</span>
+                        <span class="tag"><i class="fas fa-money-bill-wave"></i> FinBERT/BERT</span>
+                        <span class="tag"><i class="fas fa-fire"></i> PyTorch</span>
+                        <span class="tag"><i class="fas fa-chart-line"></i> Scikit-Learn</span>
+                        <span class="tag"><i class="fas fa-code"></i> TensorFlow</span>
+                    </div>
+                </div>
+
+                <!-- Card 3: Data Engineering -->
+                <div class="bento-card gold">
+                    <div class="bento-icon"><i class="fas fa-database"></i></div>
+                    <h3 class="bento-title">Data Engineering</h3>
+                    <div class="tag-cloud">
+                        <span class="tag"><i class="fas fa-server"></i> SQL</span>
+                        <span class="tag"><i class="fas fa-bolt"></i> PySpark</span>
+                        <span class="tag"><i class="fas fa-database"></i> Vector DBs</span>
+                        <span class="tag"><i class="fas fa-network-wired"></i> Pipelines</span>
+                    </div>
+                </div>
+
+                <!-- Card 4: Ops -->
+                <div class="bento-card col-span-2">
+                    <div class="bento-icon"><i class="fas fa-cloud"></i></div>
+                    <h3 class="bento-title">MLOps & Infrastructure</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.9rem;">
+                        Taking models from notebook to scalable production endpoints.
+                    </p>
+                    <div class="tag-cloud">
+                        <span class="tag"><i class="fab fa-aws"></i> AWS SageMaker</span>
+                        <span class="tag"><i class="fas fa-infinity"></i> MLflow</span>
+                        <span class="tag"><i class="fab fa-docker"></i> Docker</span>
+                        <span class="tag"><i class="fas fa-database"></i> Pinecone</span>
+                        <span class="tag"><i class="fas fa-flask"></i> Experiment Tracking</span>
+                        <span class="tag"><i class="fab fa-git-alt"></i> Git</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects (Restored All 6) -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Impact</span>
+                <h2 class="section-title">Key Projects</h2>
+            </div>
+
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-banner">
+                        <span class="project-type">Internal Tool</span>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Market Commentary Analysis</h3>
+                        <p class="project-desc">Extracted insights from unstructured financial data using NLP and multiple data sources (HBase, Bloomberg) to build sentiment-driven forecasting model.</p>
+                        <a href="#" class="project-link">NLP • FinBERT • Forecasting</a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-banner" style="background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(255, 212, 128, 0.1));">
+                        <span class="project-type">Proprietary</span>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Self-Monitoring Platform</h3>
+                        <p class="project-desc">Built proactive monitoring system using anomaly detection & time series analysis. Achieved 60% reduction in downtime and 20% faster RCA.</p>
+                        <a href="#" class="project-link">Anomaly Detection • Python</a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-banner" style="background: linear-gradient(135deg, rgba(77, 255, 168, 0.1), rgba(77, 163, 255, 0.1));">
+                        <span class="project-type">Platform</span>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Intelligent Ticketing Agent</h3>
+                        <p class="project-desc">Agentic system combining NLP and automation. Enabled zero-touch issue resolution with intelligent RCA for IT operations.</p>
+                        <a href="#" class="project-link">Agentic AI • RAG • Automation</a>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card">
+                    <div class="project-banner" style="background: linear-gradient(135deg, rgba(156, 39, 176, 0.1), rgba(255, 215, 0, 0.1));">
+                        <span class="project-type">Proprietary</span>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">DS Analytics Platform</h3>
+                        <p class="project-desc">Data science platform for Wells Fargo traders. Boosted data processing efficiency by 20% and enabled real-time decision making.</p>
+                        <a href="#" class="project-link">Real-time Analytics • Visualization</a>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card">
+                    <div class="project-banner" style="background: linear-gradient(135deg, rgba(63, 81, 181, 0.1), rgba(0, 188, 212, 0.1));">
+                        <span class="project-type">NLP Model</span>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">FinBERT Sentiment Model</h3>
+                        <p class="project-desc">Fine-tuned FinBERT for financial text combined with LSTM. Improved issue identification accuracy by 25%.</p>
+                        <a href="#" class="project-link">Transformers • Fine-tuning</a>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card">
+                    <div class="project-banner" style="background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(255, 255, 0, 0.1));">
+                        <span class="project-type">Dashboard</span>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Self-Serve Analytics</h3>
+                        <p class="project-desc">Led creation of self-serve analytics dashboard for multinational banking clients. Enabled digital journey analysis.</p>
+                        <a href="#" class="project-link">Spark • BI • Data Engineering</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Highlight -->
+    <section id="content-cta">
+        <div class="container">
+            <div class="content-highlight">
+                <h2 style="margin-bottom: 1rem;">The 52-Week GenAI Curriculum</h2>
+                <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto 2rem;">
+                    I'm documenting the entire journey of mastering GenAI, from basic LLMs to complex Agentic workflows. Join 100K+ others learning with me.
+                </p>
+                <div class="btn-group" style="justify-content: center;">
+                    <a href="content.html" class="btn btn-primary">Explore Content Hub</a>
+                    <a href="https://linkedin.com/in/rahulgarg95" class="btn btn-outline"><i class="fab fa-linkedin"></i> Follow on LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Reach Out</span>
+                <h2 class="section-title">Let's Connect</h2>
+            </div>
+            
+            <div class="contact-section">
+                <!-- Profile Side (Moved Here) -->
+                <div style="text-align: center;">
+                    <img src="images/profile.jpg" onerror="this.src='https://ui-avatars.com/api/?name=Rahul+Garg&size=300&background=0B0E14&color=4DA3FF'" alt="Rahul Garg" style="width: 220px; height: 220px; border-radius: 50%; border: 3px solid var(--accent-primary); object-fit: cover; box-shadow: 0 0 40px rgba(0, 188, 212, 0.3); margin-bottom: 1.5rem;">
+                    <h3 style="margin-bottom: 0.5rem;">Rahul Garg</h3>
+                    <p style="color: var(--text-secondary);">Senior Data Scientist | GenAI Expert</p>
+                    <div class="footer-socials" style="margin-top: 1.5rem;">
+                        <a href="https://linkedin.com/in/rahulgarg95" class="footer-social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://x.com/genaiwithrahul" class="footer-social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="https://github.com/rahulgarg95" class="footer-social-link"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+
+                <!-- Info Side -->
+                <div class="contact-info-card">
+                    <div class="contact-row">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="contact-detail">
+                            <h5>Location</h5>
+                            <p>Gurugram, Haryana, India</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-row">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="contact-detail">
+                            <h5>Email</h5>
+                            <p><a href="mailto:rahulgarg95@gmail.com" style="color: var(--text-primary); text-decoration: none;">rahulgarg95@gmail.com</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-row">
+                        <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+                        <div class="contact-detail">
+                            <h5>Phone</h5>
+                            <p>+91 9876543210</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-row">
+                        <div class="contact-icon"><i class="fas fa-clock"></i></div>
+                        <div class="contact-detail">
+                            <h5>Best Time to Contact</h5>
+                            <p>9 AM - 6 PM IST (Mon-Fri)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p style="color: var(--text-secondary);">© 2026 Rahul Garg. Built with <i class="fas fa-heart" style="color: var(--accent-secondary);"></i> & Agentic AI.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar blur on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+
+        // Mobile Menu
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        menuBtn.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            if(navLinks.style.display === 'flex') {
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '70px';
+                navLinks.style.left = '0';
+                navLinks.style.width = '100%';
+                navLinks.style.background = 'var(--bg-deep)';
+                navLinks.style.padding = '2rem';
+                navLinks.style.borderBottom = '1px solid var(--border-light)';
+            }
+        });
+    </script>
+</body>
+</html>
