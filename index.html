@@ -59,7 +59,13 @@
             color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
+            width: 100%;
             position: relative;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
         }
 
         /* --- BACKGROUND FX --- */
@@ -192,7 +198,8 @@
         .container {
             max-width: 1100px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 1.5rem;
+            overflow: hidden;
         }
 
         section { padding: 6rem 0; }
@@ -347,11 +354,12 @@
         /* Mini Stats */
         .hero-stats {
             display: flex;
-            gap: 3rem;
+            gap: 1.5rem;
             margin-top: 3rem;
             border-top: 1px solid var(--border-light);
             padding-top: 2rem;
             animation: fadeInUp 0.8s ease-out 0.8s both;
+            flex-wrap: wrap;
         }
 
         .h-stat div:first-child { font-size: 1.8rem; font-weight: 700; color: var(--text-primary); font-family: var(--font-display); }
@@ -604,7 +612,18 @@
         }
 
         @media (max-width: 768px) {
-            .hero-title { font-size: 3.5rem; }
+            .hero-title { 
+                font-size: 2.8rem; /* Reduced from 3.5rem */
+                word-wrap: break-word;
+            }
+            .hero-role {
+                font-size: 1.4rem;
+            }
+            .hero-stats {
+                display: grid;
+                grid-template-columns: 1fr 1fr; /* Stack stats in 2x2 grid instead of a long row */
+                gap: 1.5rem;
+            }
             .bento-grid { grid-template-columns: 1fr; }
             .col-span-2 { grid-column: auto; }
             .timeline-line { left: 20px; }
@@ -1133,6 +1152,38 @@
             }
         });
 
+        // Mobile Menu Logic
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        menuBtn.addEventListener('click', () => {
+            const isDisplayed = navLinks.style.display === 'flex';
+            
+            if (!isDisplayed) {
+                navLinks.style.display = 'flex';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '100%';
+                navLinks.style.left = '0';
+                navLinks.style.width = '100vw'; /* Use Viewport Width */
+                navLinks.style.background = 'rgba(15, 15, 30, 0.98)';
+                navLinks.style.padding = '2rem';
+                navLinks.style.borderBottom = '1px solid var(--border-light)';
+                navLinks.style.boxSizing = 'border-box'; /* Crucial for no horizontal scroll */
+            } else {
+                navLinks.style.display = 'none';
+            }
+        });
+
+        // Close menu when a link is clicked
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    navLinks.style.display = 'none';
+                }
+            });
+        });
+
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1141,27 +1192,19 @@
                     e.preventDefault();
                     const target = document.querySelector(href);
                     if (target) {
-                        target.scrollIntoView({ behavior: 'smooth' });
+                        const offset = 80;
+                        const bodyRect = document.body.getBoundingClientRect().top;
+                        const elementRect = target.getBoundingClientRect().top;
+                        const elementPosition = elementRect - bodyRect;
+                        const offsetPosition = elementPosition - offset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
                     }
                 }
             });
-        });
-
-        // Mobile Menu
-        const menuBtn = document.querySelector('.mobile-menu-btn');
-        const navLinks = document.querySelector('.nav-links');
-        menuBtn.addEventListener('click', () => {
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-            if(navLinks.style.display === 'flex') {
-                navLinks.style.flexDirection = 'column';
-                navLinks.style.position = 'absolute';
-                navLinks.style.top = '70px';
-                navLinks.style.left = '0';
-                navLinks.style.width = '100%';
-                navLinks.style.background = 'var(--bg-deep)';
-                navLinks.style.padding = '2rem';
-                navLinks.style.borderBottom = '1px solid var(--border-light)';
-            }
         });
     </script>
 </body>
